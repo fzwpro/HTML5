@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<h1>获取数据</h1>
+	<script type="text/javascript">
+		var val1=sessionStorage["item_1"];
+		var val2=sessionStorage["age"];
+		console.log(val1);
+		console.log(val2);
+		console.log(sessionStorage.length);
+		console.log(sessionStorage.key(0));
+		console.log(sessionStorage.key(1));
+		// 删除
+		sessionStorage.removeItem("age");
+		// sessionStorage.clear();
+	</script>
+</body>
+</html>

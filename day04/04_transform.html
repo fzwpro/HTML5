@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		body{text-align: center;}
+		#c2{
+			background:#ccc;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="c2" width="500px" height="400px">
+		浏览器版本过低，撤
+	</canvas>
+	<script type="text/javascript">
+		var c2=document.getElementById("c2");
+		var ctx=c2.getContext("2d");
+		var p3=new Image();
+		p3.src="img/p3.png";
+		var p4=new Image();
+		p4.src="img/p4.png";
+		p3.onload=function(){
+			var deg1=15*Math.PI/180;
+			var deg2=30*Math.PI/180;
+			var timer=setInterval(()=>{
+				ctx.clearRect(0,0,500,400);
+				ctx.save()
+				ctx.translate(100,50);
+				ctx.rotate(deg1);
+				ctx.drawImage(p3,-100,-50);
+				ctx.restore(); 
+				// ctx.rotate(-deg1);
+				// ctx.translate(-100,-50);
+				deg1+=15*Math.PI/180;
+
+				ctx.translate(100,350);
+				ctx.rotate(deg2);
+				ctx.drawImage(p4,-100,-50);
+				ctx.rotate(-deg2);
+				ctx.translate(-100,-350);
+				deg2+=30*Math.PI/180;
+			},50)
+		}
+	</script>
+</body>
+</html>

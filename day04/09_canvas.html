@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>canvas播放器</title>
+	<style type="text/css">
+		body{text-align: center;}
+	</style>
+</head>
+<body>
+	<h1>h5-canvas 音乐播放器</h1>
+	<canvas id="c2"></canvas>
+	<script type="text/javascript">
+		var c2=document.getElementById("c2");
+		var ctx=c2.getContext("2d");
+		var progress=0;
+		var imgBG   =new Image();
+		imgBG.src="img/bg.jpg";
+		imgBG.onload=function(){
+			progress+=25;
+			if(progress==100){
+				startDraw();
+			}
+		}
+		var imgDisc =new Image();
+		imgDisc.src="img/disc.png";
+		imgDisc.onload=function(){
+			progress+=25;
+			if(progress==100){
+				startDraw();
+
+			var deg=15*Math.PI/180;
+				var timer=setInterval(()=>{
+				var w=imgBG.width;
+				var h=imgBG.height;
+				c2.width=w;
+				c2.height=h;
+				ctx.clearRect(0,0,w,h);
+				ctx.translate(w/2,h/2);
+				ctx.rotate(deg);
+				ctx.drawImage(imgDisc,w/2,h/2);
+				ctx.rotate(-deg);
+				ctx.translate(-w/2,-h/2);
+				deg+=15*Math.PI/180;
+			},50)
+		  }
+		}
+		var imgPlay =new Image();
+		imgPlay.src="img/play.png";
+		imgPlay.onload=function(){
+			progress+=25;
+			if(progress==100){
+				startDraw();
+			}
+		}
+		var imgPause=new Image();
+		imgPause.src="img/pause.png";
+		imgPause.onload=function(){
+			progress+=25;
+			if(progress==100){
+				startDraw();
+			}
+		}
+		function startDraw(){
+			var w=imgBG.width;
+			var h=imgBG.height;
+			c2.width=w;
+			c2.height=h;
+			ctx.drawImage(imgBG,0,0);
+			ctx.beginPath();
+			ctx.arc(w/2,h/2,120,0,2*Math.PI);
+			ctx.fillStyle="black";
+			ctx.fill();
+			ctx.drawImage(imgDisc,(w-170)/2,(h-170)/2,170,170);
+			ctx.drawImage(imgPause,(w-80)/2,h-80,80,80);
+			ctx.drawImage(imgPlay,(w-80)/2,h-80,80,80);
+		}
+
+	</script>
+</body>
+</html>

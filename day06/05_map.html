@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<button id="btn1">读取我的位置信息</button>
+	<script type="text/javascript">
+		btn1.onclick=function(){
+			navigator.geolocation
+				.getCurrentPosition(succCB,errCB);
+		}
+		function succCB(pos){
+			document.write("获取定位数据成功");
+			document.write("定位时间"+pos.timestamp);
+			document.write("维度"+pos.coords.latitude);
+			document.write("经度"+pos.coords.longitude);
+			document.write("海拔"+pos.coords.altitude);
+			document.write("速度"+pos.speed);
+		}
+		function errCB(err){
+			document.write("获取失败");
+			document.write(err.message);
+			document.write(err.code);
+		}
+	</script>
+</body>
+</html>

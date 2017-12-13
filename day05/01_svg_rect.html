@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		body{text-align: center;}
+		svg{
+			background: #ccc;
+		}
+	</style>
+</head>
+<body>
+	<h1>svg事件监听绑定</h1>
+	<svg id="s2" width="500px" height="400px">
+		<rect id="r2" width="30" height="1"
+			x="235" y="400" fill="#faa" fill-opacity="0.3"
+			stroke="#800" stroke-opacity="0.3">
+		</rect>
+	</svg>
+	<script type="text/javascript">
+		// r2.onmousemove=function(){
+		// 	this.setAttribute("fill-opacity",1);
+		// 	this.setAttribute("stroke-opacity",1);
+		// }
+		// r2.onmouseout=function(){
+		// 	this.setAttribute("fill-opacity",0.3);
+		// 	this.setAttribute("stroke-opacity",0.3);
+		// }
+		var h=parseInt(r2.getAttribute("height"));
+			var y=parseInt(r2.getAttribute("y"));
+		var timer=setInterval(function(){
+			
+			h+=3;
+			y-=3;
+			r2.setAttribute("height",h);
+			r2.setAttribute("y",y);
+			if(h>300){
+				clearInterval(timer);
+			}
+		},500)
+		
+	</script> 
+</body>
+</html>

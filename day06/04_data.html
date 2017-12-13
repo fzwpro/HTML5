@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		body{text-align: center;}
+		svg,canvas{background:#F2F0E3;}
+	</style>
+</head>
+<body>
+	<h1>使用echarts.min.js创建圆形和矩形</h1>
+	<div id="box" style="width: 600px;height: 400px;"></div>
+	<script type="text/javascript" src="echarts.min.js"></script>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$.get("04_data.php",function(data){
+		var option={
+			title:{text:"区组资源量"},
+			tooltip:{},
+			legend:{data:["数据源来自网络"]},
+			xAxis:{data:data.name},
+			yAxis:{},
+			series:[
+				{name:"普及量",type:"line",data:data.data}]
+		};
+			
+		var myChart=echarts.init(box);
+		myChart.setOption(option);})
+	</script>
+</body>
+</html>

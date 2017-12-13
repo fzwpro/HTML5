@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		body{
+			text-align: center;
+		}
+		#c2{
+			background: #ccc;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="c2" width="500px" height="400px"></canvas>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		var c2=document.getElementById("c2");
+		var ctx=c2.getContext("2d");
+		var w=500;
+		var h=400;
+		var pd=25;
+		ctx.strokeRect(pd,pd,w-2*pd,h-2*pd);
+		$.ajax({
+			type:"get",
+			url:"04_salesdate.php",
+			success:function(data){
+				console.log(data);
+			},
+			error:function(){
+				alert("网络故障请检查!");
+			}
+		})
+	</script>
+</body>
+</html>

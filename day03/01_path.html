@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		body{text-align: center;}
+		#c2{
+			background: #ccc;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="c2" width="500px" height="400px">
+		您的浏览器版本过低，请更新
+	</canvas>
+	<script type="text/javascript">
+		var c2=document.getElementById("c2");
+		var ctx=c2.getContext("2d");
+		// ctx.beginPath();
+		// ctx.moveTo(0,0);
+		// ctx.lineTo(50,0);
+		// ctx.lineTo(50,50);
+		// ctx.lineTo(0,50);
+		// ctx.closePath();
+		// ctx.lineWidth=5;
+		// ctx.strokeStyle="green";
+		// ctx.stroke();
+        
+        // 坐标轴
+		// ctx.beginPath();
+		// ctx.moveTo(50,350);
+		// ctx.lineTo(50,50);
+		// ctx.lineTo(50-25,50+25);
+		// ctx.moveTo(50,50);
+		// ctx.lineTo(50+25,50+25);
+		// ctx.strokeStyle="blue";
+		// ctx.stroke();
+		// ctx.beginPath();
+		// ctx.moveTo(50,350);
+		// ctx.lineTo(450,350);
+		// ctx.lineTo(450-25,350-25);
+		// ctx.moveTo(450,350);
+		// ctx.lineTo(450-25,350+25);
+		// ctx.strokeStyle="green";
+		// ctx.stroke();
+
+		// 圆
+		ctx.beginPath();
+		ctx.arc(250,200,100,0,Math.PI);
+		ctx.stroke();
+		ctx.beginPath();
+		ctx.arc(450,350,25,-90*Math.PI/180,90*Math.PI/180);
+		ctx.stroke();
+	</script>
+</body>
+</html>

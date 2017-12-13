@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>验证码</title>
+	<style type="text/css">
+		body{text-align:center;}
+		#c2{
+			background: #E5F2C9;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="c2" width="120px" height="50px"></canvas>
+	<script type="text/javascript">
+		var c2=document.getElementById("c2");
+		var ctx=c2.getContext("2d");
+		function rn(min,max){
+			var n=Math.random()*(max-min)+min;
+			return Math.floor(n);
+		}
+		function rc(){
+			var r=parseInt(Math.random()*256);
+			var g=parseInt(Math.random()*256);
+			var b=parseInt(Math.random()*256);
+			return `rgb(${r},${g},${b})`;
+		}
+		// c2.style.background=rc(150,230);
+		var w=120;
+		var h=50;
+		ctx.fillStyle=rc(0,256);
+		ctx.fillRect=(0,0,w,h);
+		var pool="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+		for(var i=0;i<4;i++){
+			var c=pool[rn(0,pool.length)];
+			var fs=rn(18,40);
+			var deg=rn(-45,45);
+			ctx.font=fs+"px SimHei";
+			ctx.fillStyle=rc(80,180);
+			ctx.textBaseline="top";
+			ctx.save();
+			ctx.translate(30*i+15,15);
+			ctx.rotate(deg*Math.PI/180);
+			ctx.fillText(c,deg*Math.PI/180,-15);
+			ctx.restore();
+		}
+		for(var i=0;i<5;i++){
+			ctx.strokeStyle=rc(0,255);
+			ctx.beginPath();
+			ctx.moveTo(rn(0,w),rn(0,h));
+			ctx.lineTo(rn(0,w),rn(0,h));
+			ctx.stroke();
+		}
+		for(var i=0;i<50;i++){
+			ctx.fillStyle=rc(0,255);
+			ctx.beginPath();
+			ctx.arc(rn(0,w),rn(0,h),1,0,2*Math.PI);
+			ctx.fill();
+		}
+	</script>
+</body>
+</html>

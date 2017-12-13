@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<button>按钮1</button>
+	<p id="result"></p>
+	<script type="text/javascript">
+		var w = new Worker("one.js");
+		w.onmessage=function(e){
+			result.innerHTML=e.data;
+		}
+	</script>
+	<!-- <script type="text/javascript" src="1.js"></script> -->
+	
+	<button>按钮2</button>
+</body>
+</html>

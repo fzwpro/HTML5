@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		body{text-align: center;}
+		svg{background: #ccc;}
+	</style>
+</head>
+<body>
+	<svg id="s2" width="800" height="600"></svg>
+	<script type="text/javascript">
+		$.aiax({
+			type:"GET",
+			url:"state.php",
+			success:function(data){
+
+			},
+			error:function(){
+				alert("着火啦！！");
+			}
+		})
+	</script>
+</body>
+</html>

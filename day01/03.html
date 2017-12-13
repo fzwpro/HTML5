@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>新表单元素-progress</h1>
+    <!--<progress></progress>-->
+    <!--<progress value="0.1"></progress>-->
+    <!--<hr>-->
+    <!--<progress value="0" id="p2"></progress>-->
+    <!--<hr>-->
+    <meter min="0" max="100000" id="m3" low="20000" high="90000" optimum="99999" value="0">
+    </meter>
+    <!--<script>-->
+<!--//        创建前进进度条-->
+<!--//        1.创建初始变量val 保存进度条初始值-->
+        <!--var val=0;-->
+<!--//        2.获取进度条元素-->
+        <!--var p2=document.getElementById("p2");-->
+        <!--var timer=setInterval(function(){-->
+            <!--val=p2.value;-->
+            <!--val+=0.1;-->
+            <!--p2.value=val;-->
+            <!--if(val>1){-->
+                <!--clearInterval(timer);-->
+                <!--alert("下载完成");-->
+            <!--}-->
+        <!--},1000)-->
+    <!--</script>-->
+    <script>
+        var val=0;
+        var m3=document.getElementById("m3");
+        var timer=setInterval(function(){
+            val=m3.value;
+            val+=500;
+            m3.value=val;
+//            if(val>100000){
+//                clearInterval(timer);
+//            }
+        },20)
+    </script>
+</body>
+</html>

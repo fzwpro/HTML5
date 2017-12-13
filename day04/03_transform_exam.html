@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		body{text-align: center;}
+		#c2{
+			background: #ccc;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="c2" width="500px" height="400px">
+		您的浏览器版本过低，请更新
+	</canvas>
+	<script type="text/javascript">
+		var c2=document.getElementById("c2");
+		var ctx=c2.getContext("2d");
+		var p3=new Image();
+		p3.src="../day03/timg.jpg";
+		p3.onload=function(){
+			ctx.translate(250,200);
+			var deg=-15*Math.PI/180;
+			var timer=setInterval(()=>{
+				ctx.clearRect(0,0,500,400);
+				ctx.rotate(deg);
+				ctx.drawImage(p3,-100,-50);
+			},50)
+		}
+	</script>
+</body>
+</html>

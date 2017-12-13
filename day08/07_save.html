@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<h1>单词录入</h1>
+	<hr>
+	英文 <input type="text" id="en"><br>
+	中文 <input type="text" id="cn"><hr>
+	<input type="button" value="保存生词" id="btnSave">
+	<hr>
+	<a href="08_test.html">开始测试</a>
+	<script type="text/javascript">
+		btnSave.onclick=function(){
+			var e=en.value;
+			var c=cn.value;
+			localStorage.setItem(e,c);
+			alert("保存完成");
+			en.value="";
+			cn.value="";
+		}
+		
+	</script>
+</body>
+</html>
